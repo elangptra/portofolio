@@ -1,1 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:ital,wght@1,700;1,900&display=swap');
+
 @import "tailwindcss";
+
+@theme {
+  --color-p5-red: #E50000;
+  --color-p3-blue: #00A8E8;
+  --color-p-black: #0B0B0B;
+  --color-p-white: #F4F4F4;
+  --color-p-yellow: #FFEB3B;
+
+  /* Definisikan Font */
+  --font-persona-header: "Anton", sans-serif;
+  --font-persona-body: "Barlow Condensed", sans-serif;
+}
+
+/* Global reset body */
+body {
+  background-color: var(--color-p-black);
+  color: var(--color-p-white);
+  overflow-x: hidden;
+  font-family: var(--font-persona-body);
+  font-weight: 700;
+  font-style: italic;
+}
+
+.bg-lines {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    #1a1a1a,
+    #1a1a1a 2px,
+    #0b0b0b 2px,
+    #0b0b0b 20px
+  );
+}
