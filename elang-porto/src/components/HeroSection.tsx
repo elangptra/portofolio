@@ -44,11 +44,11 @@ const HeroSection = () => {
                 </p>
             </motion.div>
             
-            {/* Decorative Shard */}
+            {/* Decorative Shard
             <motion.div className="absolute bottom-10 right-10 w-40 h-40 bg-p-white [clip-path:polygon(50%_0%,_100%_38%,_82%_100%,_18%_100%,_0%_38%)] z-5 group hover:bg-p3-blue transition-colors duration-300"
             animate={{ rotate: 360 }}
             transition= {{ duration:20, repeat: Infinity, ease: "linear" }}
-            />
+            /> */}
         </section>
     )
 }
