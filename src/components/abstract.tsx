@@ -1,6 +1,8 @@
 import {motion} from "framer-motion";
 import type {ReactNode, CSSProperties} from "react";
 
+// decorative elements
+
 export function JaggedSlash({
     className = "",
     color = "var(--electric)",
@@ -55,5 +57,121 @@ export function InkSplatter({
         fill={color}
       />
     </svg>
+  );
+}
+
+// layout
+
+/** A jagged, P5-style content panel. */
+export function JaggedPanel({
+  children,
+  className = "",
+  variant = "ink",
+  skew = -2,
+  style,
+}: {
+  children: ReactNode;
+  className?: string;
+  variant?: "ink" | "electric" | "bone";
+  skew?: number;
+  style?: CSSProperties;
+}) {
+  const bg =
+    variant === "electric"
+      ? "bg-electric text-ink"
+      : variant === "bone"
+        ? "bg-bone text-ink"
+        : "bg-card text-bone";
+  return (
+    <div
+      className={`relative ${className}`}
+      style={{ transform: `skewX(${skew}deg)`, ...style }}
+    >
+      <div className={`jagged-clip ${bg} relative overflow-hidden`}>
+        <div style={{ transform: `skewX(${-skew}deg)` }} className="p-6 md:p-8">
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/** Slanted ribbon with rough edges */
+export function Ribbon({
+  children,
+  className = "",
+  color = "electric",
+  skew = -8,
+}: {
+  children: ReactNode;
+  className?: string;
+  color?: "electric" | "bone" | "ink";
+  skew?: number;
+}) {
+  const bg =
+    color === "electric"
+      ? "bg-electric text-ink"
+      : color === "bone"
+        ? "bg-bone text-ink"
+        : "bg-ink text-bone";
+  return (
+    <div
+      className={`inline-block ${className}`}
+      style={{ transform: `skewX(${skew}deg)` }}
+    >
+      <div className={`${bg} ribbon-clip px-6 py-2`}>
+        <div style={{ transform: `skewX(${-skew}deg)` }}>{children}</div>
+      </div>
+    </div>
+  );
+}
+
+/** Big P5-style display heading: condensed bold italic */
+export function SplashTitle({
+  children,
+  className = "",
+  color = "bone",
+}: {
+  children: ReactNode;
+  className?: string;
+  color?: "bone" | "electric" | "ink";
+}) {
+  const c =
+    color === "electric"
+      ? "text-electric"
+      : color === "ink"
+        ? "text-ink"
+        : "text-bone";
+  return (
+    <h2
+      className={`font-display italic ${c} leading-[0.85] tracking-tight ${className}`}
+      style={{ transform: "skewX(-8deg)" }}
+    >
+      {children}
+    </h2>
+  );
+}
+
+/** Diagonal stripe background (red/blue ribbons crossing) */
+export function DiagonalStripes({ className = "" }: { className?: string }) {
+  return (
+    <div className={`absolute inset-0 pointer-events-none overflow-hidden ${className}`}>
+      <motion.div
+        initial={{ x: "-110%" }}
+        whileInView={{ x: "0%" }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.2, ease: "easeOut" }}
+        className="absolute top-[20%] -left-20 right-0 h-24 gradient-electric opacity-30 ribbon-clip"
+        style={{ transform: "rotate(-6deg)" }}
+      />
+      <motion.div
+        initial={{ x: "110%" }}
+        whileInView={{ x: "0%" }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.2, delay: 0.15, ease: "easeOut" }}
+        className="absolute top-[60%] -right-20 left-0 h-16 bg-electric opacity-20 ribbon-clip-r"
+        style={{ transform: "rotate(4deg)" }}
+      />
+    </div>
   );
 }
