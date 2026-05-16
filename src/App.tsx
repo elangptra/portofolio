@@ -1,5 +1,5 @@
-import Navbar from './components/Navbar'
 import RichBackground from './components/RichBackground'
+import Navbar from './components/Navbar'
 
 export default function App() {
 
@@ -11,7 +11,7 @@ export default function App() {
         backgroundImage:
           "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/></svg>\")",
       }}/>
-
+      <Navbar/>
     </main>
   )
 }
