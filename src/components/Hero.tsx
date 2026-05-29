@@ -1,5 +1,5 @@
 import {motion} from 'framer-motion'
-// import {ArrowRight, Download, Code, Briefcase, Mail} from 'lucide-react'
+import {ArrowRight, Download, Code, Briefcase, Mail} from 'lucide-react'
 import { StarBurst, Ribbon, DiagonalStripes } from './abstract'
 import { section } from 'motion/react-client'
 import RichBackground from './RichBackground'
@@ -87,7 +87,120 @@ const Hero = () => {
               style={{ clipPath: "polygon(50% 0, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)" }}
             />
           </div>
+
+          {/* Role ribbon */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.65 }}
+          >
+            <Ribbon color='electric' skew={-10}>
+              <span className='font-display tracking-widest text-sm md:text-base'>
+                // WEB DEVELOPER // DEVOPS ENGINEER //
+              </span>
+            </Ribbon>
+          </motion.div>
+
+          {/* Speech splash bio */}
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.8, type: "spring" }}
+            className="relative max-w-xl"
+            style={{ transform: "rotate(-1.5deg)" }}
+          >
+            <div className="relative bg-bone text-ink p-6 splash-clip">
+              <p className="font-marker text-base leading-relaxed px-4">
+                I craft <span className="text-electric">modern, performant</span> web experiences —
+                fueled by clean code, bold design & coffee.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* CTAs */}
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 1 }}
+            className="flex flex-wrap items-center gap-4 pt-2"
+          >
+            <button
+              onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
+              className="group relative font-display italic tracking-widest text-base font-bold"
+              style={{ transform: "skewX(-10deg)" }}
+            >
+              <span
+                className="inline-flex items-center gap-3 bg-electric text-bone px-8 py-4 ribbon-clip"
+                style={{ textShadow: "2px 2px 0 var(--ink)" }}
+              >
+                <span style={{ transform: "skewX(10deg)" }} className="flex items-center gap-3">
+                  ENTER THE ARSENAL
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </span>
+              </span>
+            </button>
+            <button
+              className="group font-display italic tracking-widest text-base font-bold"
+              style={{ transform: "skewX(-10deg)" }}
+            >
+              <span className="inline-flex items-center gap-3 bg-bone text-ink px-8 py-4 ribbon-clip-r">
+                <span style={{ transform: "skewX(10deg)" }} className="flex items-center gap-3">
+                  GRAB CV
+                  <Download className="w-5 h-5" />
+                </span>
+              </span>
+            </button>
+          </motion.div>
         </div>
+
+        {/* RIGHT — stat splashes */}
+        <motion.div
+          initial={{ x: 80, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ delay: 0.5, duration: 0.7 }}
+          className="hidden lg:flex flex-col gap-6 relative"
+        >
+          {[
+            { num: "2+", label: "YRS\nEXPERIENCE", rot: -3 },
+            { num: "15+", label: "PROJECTS\nSHIPPED", rot: 4 },
+            { num: "8+", label: "TECH\nMASTERED", rot: -2 },
+          ].map((s, i) => (
+            <motion.div
+              key={s.num}
+              whileHover={{ scale: 1.05, rotate: 0 }}
+              style={{ transform: `rotate(${s.rot}deg)` }}
+              transition={{ type: "spring" }}
+              className="relative"
+            >
+              <div className="relative bg-ink jagged-clip border-l-4 border-electric pl-5 pr-8 py-3 min-w-[220px] flex items-center gap-4">
+                <div className="font-display italic text-5xl text-electric leading-none" style={{ transform: "skewX(-10deg)" }}>
+                  {s.num}
+                </div>
+                <div className="font-display tracking-wider text-xs text-bone whitespace-pre-line leading-tight">
+                  {s.label}
+                </div>
+                <StarBurst className="absolute -top-3 -right-3 w-6 h-6" color="var(--electric)" />
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+
+      {/* Left social rail */}
+      <div className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 flex-col items-center gap-3 z-20">
+        <div className="font-display italic text-xs tracking-[0.4em] text-electric [writing-mode:vertical-rl] rotate-180">
+          // FOLLOW ME
+        </div>
+        {[Code, Briefcase, Mail].map((Icon, i) => (
+          <a
+            key={i}
+            href="#"
+            style={{ transform: `rotate(${i % 2 === 0 ? -5 : 5}deg)` }}
+            className="w-10 h-10 grid place-items-center bg-electric text-ink jagged-clip hover:bg-bone transition-colors"
+          >
+            <Icon className="w-4 h-4" />
+          </a>
+        ))}
       </div>
     </section>
   )
