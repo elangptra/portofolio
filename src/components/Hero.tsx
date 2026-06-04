@@ -1,7 +1,6 @@
 import {motion} from 'framer-motion'
 import {ArrowRight, Download, Code, Briefcase, Mail} from 'lucide-react'
 import { StarBurst, Ribbon, DiagonalStripes } from './abstract'
-import { section } from 'motion/react-client'
 import RichBackground from './RichBackground'
 
 const Hero = () => {
@@ -161,8 +160,8 @@ const Hero = () => {
           className="hidden lg:flex flex-col gap-6 relative"
         >
           {[
-            { num: "2+", label: "YRS\nEXPERIENCE", rot: -3 },
-            { num: "15+", label: "PROJECTS\nSHIPPED", rot: 4 },
+            { num: "1+", label: "YRS\nEXPERIENCE", rot: -3 },
+            { num: "10+", label: "PROJECTS\nSHIPPED", rot: 4 },
             { num: "8+", label: "TECH\nMASTERED", rot: -2 },
           ].map((s, i) => (
             <motion.div
