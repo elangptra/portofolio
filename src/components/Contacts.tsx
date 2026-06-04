@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Code2, Briefcase, Mail, Send } from "lucide-react";
+import { Code2, Briefcase, Mail, Send } from "lucide-react";
 import SectionHeader from "./SectionHeader";
 import { StarBurst, Ribbon } from "./abstract";
 import RichBackground from "./RichBackground";

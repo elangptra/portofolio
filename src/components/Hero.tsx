@@ -163,7 +163,7 @@ const Hero = () => {
             { num: "1+", label: "YRS\nEXPERIENCE", rot: -3 },
             { num: "10+", label: "PROJECTS\nSHIPPED", rot: 4 },
             { num: "8+", label: "TECH\nMASTERED", rot: -2 },
-          ].map((s, i) => (
+          ].map((s) => (
             <motion.div
               key={s.num}
               whileHover={{ scale: 1.05, rotate: 0 }}
