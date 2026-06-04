@@ -2,6 +2,7 @@ import RichBackground from './components/RichBackground'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
+import SkillsSection from './components/SkillsSection'
 
 export default function App() {
 
@@ -16,6 +17,7 @@ export default function App() {
       <Navbar/>
       <Hero/>
       <About/>
+      <SkillsSection/>
     </main>
   )
 }
