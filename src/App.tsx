@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
 import SkillsSection from './components/SkillsSection'
+import Contacts from './components/Contacts'
 
 export default function App() {
 
@@ -18,6 +19,7 @@ export default function App() {
       <Hero/>
       <About/>
       <SkillsSection/>
+      <Contacts/>
     </main>
   )
 }
