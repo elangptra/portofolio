@@ -4,6 +4,7 @@ import Hero from './components/Hero'
 import About from './components/About'
 import SkillsSection from './components/SkillsSection'
 import Contacts from './components/Contacts'
+import Experience from './components/Experience'
 
 export default function App() {
 
@@ -19,6 +20,7 @@ export default function App() {
       <Hero/>
       <About/>
       <SkillsSection/>
+      <Experience/>
       <Contacts/>
     </main>
   )
