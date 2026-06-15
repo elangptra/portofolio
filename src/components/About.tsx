@@ -55,13 +55,13 @@ const About = () => {
                     transition={{ delay: 0.15 }}
                     className="text-bone/80 text-base leading-relaxed font-sans max-w-xl"
                     >
-                    Toolbox spans modern frontend frameworks, type-safe backends, container orchestration,
+                    Toolbox spans from modern frontend frameworks, type-safe backends, container orchestration,
                     and CI/CD pipelines — real craft is connecting business goals to elegant technical
                     execution.
                     </motion.p>
 
                     <div className="flex flex-wrap gap-2 pt-4">
-                    {["TypeScript", "React", "Node.js", "Docker", "K8s", "PostgreSQL"].map((t, i) => (
+                    {["TypeScript", "React", "Node.js", "Docker", "K8s", "GitOps"].map((t, i) => (
                         <motion.div
                         key={t}
                         initial={{ opacity: 0, scale: 0.5, rotate: 0 }}

@@ -51,7 +51,7 @@ const Navbar = () => {
             <span className="text-electric">PUTRA</span>
           </div>
           <div className="font-marker text-[11px] text-electric tracking-widest">
-            {"{ DEV PORTFOLIO }"}
+            {"{ PORTFOLIO }"}
           </div>
         </button>
 
