@@ -5,7 +5,7 @@ import { StarBurst, Ribbon } from "./abstract";
 import RichBackground from "./RichBackground";
 import headlampMaps from "../assets/headlamp-maps.png";
 import grafanaK8s from "../assets/grafana-k8s.png";
-import gitlabCI from "../assets/gitlab-console.info(object).png";
+import gitlabCI from "../assets/gitlab-ci.png";
 
 const projects = [
   {
