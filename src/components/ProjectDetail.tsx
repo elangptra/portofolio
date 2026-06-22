@@ -215,10 +215,10 @@ export function ProjectDetail({
                     "10px 10px 0 var(--electric), 20px 20px 0 rgba(0,0,0,0.6)",
                 }}
               >
-                {isOut ? "RETREAT!" : "ATTACK!"}
+                {isOut ? "ESCAPE!" : "ALL OUT!"}
               </div>
               <div
-                className="font-marker text-electric text-2xl md:text-4xl mt-2 tracking-widest"
+                className="font-marker text-bone text-2xl md:text-4xl mt-2 tracking-widest"
                 style={{ transform: "skewX(-8deg)" }}
               >
                 {isOut
