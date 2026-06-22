@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { ArrowUpRight, Code2 } from "lucide-react";
 import SectionHeader from "./SectionHeader";
 import { StarBurst, Ribbon } from "./abstract";
 import RichBackground from "./RichBackground";
+import { ProjectDetail, type AOAProject } from "./ProjectDetail";
 import headlampMaps from "../assets/headlamp-maps.png";
 import grafanaK8s from "../assets/grafana-k8s.png";
 import gitlabCI from "../assets/gitlab-ci.png";
@@ -49,6 +51,7 @@ const projects = [
 ];
 
 const Projects = () => {
+  const [selected, setSelected] = useState<AOAProject | null>(null);
   return (
     <section id="projects" className="relative py-32 overflow-hidden">
       <RichBackground variant="deep" intensity={1} />
@@ -156,13 +159,23 @@ const Projects = () => {
                       >
                         <Code2 className="w-4 h-4" />
                       </a>
-                      <a
-                        href="#"
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setSelected({
+                            name: p.name,
+                            type: p.type,
+                            desc: p.desc,
+                            stack: p.stack,
+                            index: i,
+                          })
+                        }
+                        aria-label={`Open ${p.name} details`}
                         style={{ transform: "rotate(5deg)" }}
                         className="w-10 h-10 grid place-items-center bg-bone text-ink jagged-clip hover:bg-electric transition-colors"
                       >
                         <ArrowUpRight className="w-4 h-4" />
-                      </a>
+                      </button>
                     </div>
                   </div>
                   <p className="text-sm text-bone/75 leading-relaxed mb-4">
@@ -187,6 +200,8 @@ const Projects = () => {
           ))}
         </div>
       </div>
+
+      <ProjectDetail project={selected} onClose={() => setSelected(null)} />
     </section>
   );
 };
